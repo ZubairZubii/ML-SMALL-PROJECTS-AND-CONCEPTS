@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Chef</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'Djangochef/style.css' %}">
+</head>
+<body>
+
+  <div class="container">
+    <h1>AI Chef</h1>
+    <form id="recipe-form" method="post" action="{% url 'home' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Ask for a Recipe</button>
+    </form>
+    {% if response %}
+      <div class="response">
+        <h2>Recipe:</h2>
+        <p>{{ response }}</p>
+      </div>
+    {% endif %}
+  </div>
+
+</body>
+</html>
