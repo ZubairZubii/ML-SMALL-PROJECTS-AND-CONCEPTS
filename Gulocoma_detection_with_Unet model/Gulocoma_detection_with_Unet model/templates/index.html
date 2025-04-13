@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Optic Disc Cup Segmentation</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Optic Disc Cup Segmentation</h1>
+        </header>
+        <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*" required>
+            <button type="submit">Upload</button>
+        </form>
+        {% if filename %}
+            <div class="results">
+                <h2>Results for {{ filename }}</h2>
+                <p>Cup-to-Disc Ratio (CDR): <strong>{{ cdr }}</strong></p>
+                <p>Accuracy: <strong>{{ accuracy }}</strong></p>
+                <p>Precision: <strong>{{ precision }}</strong></p>
+                <p>Recall: <strong>{{ recall }}</strong></p>
+                <p>Intersection over Union (IoU): <strong>{{ iou }}</strong></p>
+                <div class="images">
+                    <img class="uploaded-image" src="{{ url_for('uploaded_file', filename=filename) }}" alt="Uploaded Image">
+                </div>
+                <div class="graphs">
+                    <h3>Graphs</h3>
+                    <img class="graph-image" src="{{ url_for('uploaded_graph', filename='loss_graph.png') }}" alt="Loss Graph">
+                    <img class="graph-image" src="{{ url_for('uploaded_graph', filename='dice_coefficient_graph.png') }}" alt="Dice Coefficient Graph">
+                </div>
+                <div class="mask-results">
+                    <h3>Mask Results</h3>
+                    <div class="mask-images">
+                        <img class="mask-image" src="{{ url_for('uploaded_file', filename='predicted_mask.png') }}" alt="Predicted Mask">
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
