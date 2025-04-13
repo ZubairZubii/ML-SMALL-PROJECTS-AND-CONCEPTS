@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Price Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Laptop Price Prediction Result</h1>
+        </div>
+    </header>
+
+    <section class="result-section">
+        <div class="container">
+            <div class="result-box">
+                <h2>Predicted Laptop Price</h2>
+
+                <div class="result-details">
+                    <h3>Details:</h3>
+                    <ul>
+                        <li><strong>Brand:</strong> {{ brand }}</li>
+                        <li><strong>Type:</strong> {{ type }}</li>
+                        <li><strong>RAM:</strong> {{ ram }} GB</li>
+                        <li><strong>Weight:</strong> {{ weight }} kg</li>
+                        <li><strong>Touchscreen:</strong> {{ touchscreen }}</li>
+                        <li><strong>IPS Display:</strong> {{ ips }}</li>
+                        <li><strong>Screen Size:</strong> {{ screen_size }} inches</li>
+                        <li><strong>Resolution:</strong> {{ resolution }}</li>
+                        <li><strong>CPU:</strong> {{ cpu }}</li>
+                        <li><strong>HDD:</strong> {{ hdd }} GB</li>
+                        <li><strong>SSD:</strong> {{ ssd }} GB</li>
+                        <li><strong>GPU:</strong> {{ gpu }}</li>
+                        <li><strong>Operating System:</strong> {{ os }}</li>
+                    </ul>
+                </div>
+
+                <div class="price-result">
+                    <h3>Predicted Price:</h3>
+                    <span>${{ price }}</span>
+                </div>
+
+                <a href="/" class="btn-go-back">Go Back</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Laptop Price Predictor. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

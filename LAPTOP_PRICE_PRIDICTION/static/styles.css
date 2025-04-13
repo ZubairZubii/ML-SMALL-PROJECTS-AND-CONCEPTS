@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+header {
+    background-color: #343a40;
+    padding: 20px 0;
+    color: white;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+.hero {
+    padding: 50px 0;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-img-container {
+    flex: 1;
+    margin: 0 20px;
+    text-align: center;
+}
+
+.hero-img {
+    width: 100%;
+    height: auto;
+    max-width: 400px; /* Adjust this as needed */
+}
+
+.hero-text {
+    flex: 2;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.hero-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.form-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group select,
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #343a40;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: grey;
+}
+
+.result-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.result-box {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.result-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.result-details ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.result-details ul li {
+    margin-bottom: 10px;
+}
+
+.price-result {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.price-result span {
+    font-size: 2rem;
+    color: green;
+}
+
+.btn-go-back {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #343a40;
+    padding: 10px 20px;
+    color: white;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 30px;
+}

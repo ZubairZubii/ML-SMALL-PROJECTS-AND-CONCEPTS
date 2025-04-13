@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Price Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Laptop Price Predictor</h1>
+            <p>Get an estimate of your laptop's price based on key features!</p>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-img-container">
+                    <img src="static/images/laptop.webp" alt="Laptop Image 1" class="hero-img">
+                </div>
+                <div class="hero-img-container">
+                    <img src="static/images/pc.png" alt="Laptop Image 2" class="hero-img">
+                </div>
+                <div class="hero-text">
+                    <h2>Predict Your Laptop's Price Now</h2>
+                    <p>Fill in the details below to get an accurate prediction of the laptop price.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="form-section">
+        <div class="container">
+            <form action="/predict" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="brand">Brand:</label>
+                        <select id="brand" name="brand">
+                            {% for brand in brands %}
+                                <option value="{{ brand }}">{{ brand }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="type">Type:</label>
+                        <select id="type" name="type">
+                            {% for type in types %}
+                                <option value="{{ type }}">{{ type }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="ram">RAM (GB):</label>
+                        <select id="ram" name="ram">
+                            <option value="2">2</option>
+                            <option value="4">4</option>
+                            <option value="8">8</option>
+                            <option value="16">16</option>
+                            <option value="32">32</option>
+                            <option value="64">64</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="weight">Weight (kg):</label>
+                        <input type="number" id="weight" name="weight" step="0.1" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="touchscreen">Touchscreen:</label>
+                        <select id="touchscreen" name="touchscreen">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ips">IPS Display:</label>
+                        <select id="ips" name="ips">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="screen_size">Screen Size (inches):</label>
+                        <input type="number" id="screen_size" name="screen_size" step="0.1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="resolution">Resolution:</label>
+                        <select id="resolution" name="resolution">
+                            <option value="1920x1080">1920x1080</option>
+                            <option value="1366x768">1366x768</option>
+                            <option value="1600x900">1600x900</option>
+                            <option value="3840x2160">3840x2160</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cpu">CPU:</label>
+                        <select id="cpu" name="cpu">
+                            {% for cpu in cpus %}
+                                <option value="{{ cpu }}">{{ cpu }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hdd">HDD (GB):</label>
+                        <select id="hdd" name="hdd">
+                            <option value="0">0</option>
+                            <option value="128">128</option>
+                            <option value="256">256</option>
+                            <option value="512">512</option>
+                            <option value="1024">1024</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="ssd">SSD (GB):</label>
+                        <select id="ssd" name="ssd">
+                            <option value="0">0</option>
+                            <option value="256">256</option>
+                            <option value="512">512</option>
+                            <option value="1024">1024</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gpu">GPU Brand:</label>
+                        <select id="gpu" name="gpu">
+                            {% for gpu in gpus %}
+                                <option value="{{ gpu }}">{{ gpu }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="os">Operating System:</label>
+                        <select id="os" name="os">
+                            {% for os_type in os_types %}
+                                <option value="{{ os_type }}">{{ os_type }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="warranty">Warranty (Years):</label>
+                        <select id="warranty" name="warranty">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit">Predict Price</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Laptop Price Predictor. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
