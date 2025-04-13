@@ -1,0 +1,6 @@
+prophet
+plotly
+pandas
+numpy
+matplotlib
+sklearn
